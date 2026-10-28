@@ -2,7 +2,7 @@
   {
     "id": "pptx",
     "name": "_최종.pptx",
-    "category": "web",
+    "category": "work",
     "status": "available",
     "visibility": "private",
     "listed": true,
@@ -15,7 +15,7 @@
   {
     "id": "uthabiti",
     "name": "Uthabiti",
-    "category": "web",
+    "category": "hobby",
     "status": "available",
     "visibility": "private",
     "listed": true,
@@ -28,7 +28,7 @@
   {
     "id": "tracktxt",
     "name": "TrackTXT",
-    "category": "web",
+    "category": "hobby",
     "status": "available",
     "visibility": "private",
     "listed": true,
@@ -41,7 +41,7 @@
   {
     "id": "videoready",
     "name": "VideoReady",
-    "category": "web",
+    "category": "work",
     "status": "available",
     "visibility": "private",
     "listed": true,
@@ -54,7 +54,7 @@
   {
     "id": "wakeup",
     "name": "Wakeup",
-    "category": "web",
+    "category": "utility",
     "status": "available",
     "visibility": "public",
     "listed": true,
@@ -68,7 +68,7 @@
   {
     "id": "simple-light",
     "name": "Simple Light",
-    "category": "web",
+    "category": "utility",
     "status": "available",
     "visibility": "private",
     "listed": true,
@@ -80,7 +80,7 @@
   {
     "id": "blockplan",
     "name": "BlockPlan",
-    "category": "web",
+    "category": "custom",
     "status": "available",
     "visibility": "private",
     "listed": true,
@@ -92,7 +92,7 @@
   {
     "id": "estipdf",
     "name": "EstiPDF",
-    "category": "web",
+    "category": "custom",
     "status": "available",
     "visibility": "private",
     "listed": true,
@@ -104,7 +104,7 @@
   {
     "id": "hwpilot",
     "name": "hwpilot",
-    "category": "agent",
+    "category": "work",
     "status": "available",
     "visibility": "private",
     "listed": true,
@@ -116,7 +116,7 @@
   {
     "id": "imweb-editor-kit",
     "name": "imweb-editor-kit",
-    "category": "agent",
+    "category": "work",
     "status": "available",
     "visibility": "private",
     "listed": true,
@@ -128,7 +128,7 @@
   {
     "id": "patent-management",
     "name": "patent-management",
-    "category": "agent",
+    "category": "work",
     "status": "available",
     "visibility": "private",
     "listed": true,
@@ -141,7 +141,7 @@
     "id": "chatgpt-conversation-maintenance",
     "name": "ChatGPT 대화 유지관리",
     "nameEn": "ChatGPT Conversation Maintenance",
-    "category": "agent",
+    "category": "utility",
     "status": "available",
     "visibility": "public",
     "listed": true,
@@ -154,7 +154,7 @@
   {
     "id": "ysm-skills",
     "name": "ysm-skills",
-    "category": "agent",
+    "category": "utility",
     "status": "available",
     "visibility": "private",
     "listed": true,
@@ -166,7 +166,7 @@
   {
     "id": "vizrack",
     "name": "VizRack",
-    "category": "app",
+    "category": "hobby",
     "status": "available",
     "visibility": "public",
     "listed": true,
@@ -179,7 +179,7 @@
   {
     "id": "youtube-live-recorder",
     "name": "YouTube LIVE Recorder",
-    "category": "app",
+    "category": "utility",
     "status": "available",
     "visibility": "public",
     "listed": true,
@@ -192,7 +192,7 @@
   {
     "id": "python-lda-topic-modeling",
     "name": "python-lda-topic-modeling",
-    "category": "record",
+    "category": "utility",
     "status": "available",
     "visibility": "public",
     "listed": true,
@@ -205,7 +205,7 @@
   {
     "id": "commerce-decision-demo",
     "name": "Commerce Decision Lab",
-    "category": "record",
+    "category": "hobby",
     "status": "archived",
     "visibility": "public",
     "listed": true,
@@ -219,7 +219,7 @@
   {
     "id": "fluid-stabilizer",
     "name": "fluid-stabilizer",
-    "category": "record",
+    "category": "hobby",
     "status": "archived",
     "visibility": "public",
     "listed": true,
