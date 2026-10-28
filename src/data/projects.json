@@ -2,7 +2,7 @@
   {
     "id": "pptx",
     "name": "_최종.pptx",
-    "category": "web",
+    "category": "work",
     "status": "available",
     "visibility": "private",
     "listed": true,
@@ -15,7 +15,7 @@
   {
     "id": "uthabiti",
     "name": "Uthabiti",
-    "category": "web",
+    "category": "hobby",
     "status": "available",
     "visibility": "private",
     "listed": true,
@@ -28,7 +28,7 @@
   {
     "id": "tracktxt",
     "name": "TrackTXT",
-    "category": "web",
+    "category": "hobby",
     "status": "available",
     "visibility": "private",
     "listed": true,
@@ -41,7 +41,7 @@
   {
     "id": "videoready",
     "name": "VideoReady",
-    "category": "web",
+    "category": "work",
     "status": "available",
     "visibility": "private",
     "listed": true,
@@ -54,7 +54,7 @@
   {
     "id": "wakeup",
     "name": "Wakeup",
-    "category": "web",
+    "category": "utility",
     "status": "available",
     "visibility": "public",
     "listed": true,
@@ -68,7 +68,7 @@
   {
     "id": "simple-light",
     "name": "Simple Light",
-    "category": "web",
+    "category": "utility",
     "status": "available",
     "visibility": "private",
     "listed": true,
@@ -80,7 +80,7 @@
   {
     "id": "blockplan",
     "name": "BlockPlan",
-    "category": "web",
+    "category": "custom",
     "status": "available",
     "visibility": "private",
     "listed": true,
@@ -92,7 +92,7 @@
   {
     "id": "estipdf",
     "name": "EstiPDF",
-    "category": "web",
+    "category": "custom",
     "status": "available",
     "visibility": "private",
     "listed": true,
@@ -104,7 +104,7 @@
   {
     "id": "hwpilot",
     "name": "hwpilot",
-    "category": "agent",
+    "category": "work",
     "status": "available",
     "visibility": "private",
     "listed": true,
@@ -116,7 +116,7 @@
   {
     "id": "imweb-editor-kit",
     "name": "imweb-editor-kit",
-    "category": "agent",
+    "category": "work",
     "status": "available",
     "visibility": "private",
     "listed": true,
@@ -128,7 +128,7 @@
   {
     "id": "patent-management",
     "name": "patent-management",
-    "category": "agent",
+    "category": "work",
     "status": "available",
     "visibility": "private",
     "listed": true,
@@ -141,7 +141,7 @@
     "id": "chatgpt-conversation-maintenance",
     "name": "ChatGPT 대화 유지관리",
     "nameEn": "ChatGPT Conversation Maintenance",
-    "category": "agent",
+    "category": "utility",
     "status": "available",
     "visibility": "public",
     "listed": true,
@@ -154,7 +154,7 @@
   {
     "id": "ysm-skills",
     "name": "ysm-skills",
-    "category": "agent",
+    "category": "utility",
     "status": "available",
     "visibility": "private",
     "listed": true,
@@ -167,10 +167,10 @@
     "id": "huject-work-tools",
     "name": "사내 업무도구",
     "nameEn": "Internal work tools",
-    "category": "web",
+    "category": "work",
     "status": "building",
     "visibility": "private",
-    "listed": true,
+    "listed": false,
     "summary": {
       "ko": "구성원이 작은 업무도구를 만들고 검증해 함께 쓰기 위한 최소 운영 기반입니다. 공통 로그인 게이트웨이와 첫 기준 도구를 갖췄습니다.",
       "en": "A minimal foundation for building, vetting and sharing small internal tools, with a common sign-in gateway and a first reference tool."
@@ -179,10 +179,10 @@
   {
     "id": "stitch-counter",
     "name": "Stitch Counter",
-    "category": "app",
+    "category": "hobby",
     "status": "building",
     "visibility": "private",
-    "listed": true,
+    "listed": false,
     "summary": {
       "ko": "뜨개질용 행 수 카운터. 큰 숫자와 쉬운 +1/−1, 실수로 지워지지 않는 초기화, 오프라인 동작을 갖춘 Android·iOS 앱입니다.",
       "en": "A row counter for knitting and crochet: a big number, easy +1/−1, a reset that cannot happen by accident, and offline use on Android and iOS."
@@ -191,7 +191,7 @@
   {
     "id": "vizrack",
     "name": "VizRack",
-    "category": "app",
+    "category": "hobby",
     "status": "available",
     "visibility": "public",
     "listed": true,
@@ -204,7 +204,7 @@
   {
     "id": "youtube-live-recorder",
     "name": "YouTube LIVE Recorder",
-    "category": "app",
+    "category": "utility",
     "status": "available",
     "visibility": "public",
     "listed": true,
@@ -218,10 +218,10 @@
     "id": "doridori",
     "name": "도리도리",
     "nameEn": "Doridori",
-    "category": "record",
+    "category": "hobby",
     "status": "building",
     "visibility": "private",
-    "listed": true,
+    "listed": false,
     "summary": {
       "ko": "이어폰·헤드폰 리뷰 위키. Markdown으로 글을 쓰고 정적 사이트로 공개합니다.",
       "en": "A wiki of earphone and headphone reviews, written in Markdown and published as a static site."
@@ -230,10 +230,10 @@
   {
     "id": "my-setting",
     "name": "AI Setup Notes",
-    "category": "record",
+    "category": "utility",
     "status": "available",
     "visibility": "private",
-    "listed": true,
+    "listed": false,
     "summary": {
       "ko": "자주 쓰는 AI 도구의 설정과 반복 지시를 정리한 문서 사이트입니다.",
       "en": "A documentation site collecting settings and recurring instructions for the AI tools I use most."
@@ -242,7 +242,7 @@
   {
     "id": "python-lda-topic-modeling",
     "name": "python-lda-topic-modeling",
-    "category": "record",
+    "category": "utility",
     "status": "available",
     "visibility": "public",
     "listed": true,
@@ -256,10 +256,10 @@
     "id": "looking-for-home",
     "name": "집갈피",
     "nameEn": "Jipgalpi",
-    "category": "web",
+    "category": "utility",
     "status": "archived",
     "visibility": "private",
-    "listed": true,
+    "listed": false,
     "summary": {
       "ko": "청약·임대·주거지원 공고를 한곳에서 찾고 공식 원문으로 이동하게 돕던 웹 서비스. 2026년 7월에 개발을 중단하고 보관했습니다.",
       "en": "A web service that gathered Korean housing subscription, rental and support notices and linked to the official sources. Archived in July 2026."
@@ -268,7 +268,7 @@
   {
     "id": "commerce-decision-demo",
     "name": "Commerce Decision Lab",
-    "category": "record",
+    "category": "hobby",
     "status": "archived",
     "visibility": "public",
     "listed": true,
@@ -282,7 +282,7 @@
   {
     "id": "fluid-stabilizer",
     "name": "fluid-stabilizer",
-    "category": "record",
+    "category": "hobby",
     "status": "archived",
     "visibility": "public",
     "listed": true,
@@ -295,7 +295,7 @@
   {
     "id": "doctor-bot",
     "name": "doctor-bot",
-    "category": "agent",
+    "category": "utility",
     "status": "building",
     "visibility": "private",
     "listed": false,
@@ -307,7 +307,7 @@
   {
     "id": "smc-mode",
     "name": "SMC-Mode",
-    "category": "app",
+    "category": "utility",
     "status": "archived",
     "visibility": "private",
     "listed": false,
@@ -319,7 +319,7 @@
   {
     "id": "eng2kor-for-mac-automator",
     "name": "eng2korForMacAutomator",
-    "category": "app",
+    "category": "utility",
     "status": "archived",
     "visibility": "private",
     "listed": false,
