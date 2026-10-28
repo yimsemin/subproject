@@ -26,6 +26,14 @@ npm run check   # 빌드 + 콘텐츠·노출·글자 크기 검사 (푸시 전)
 - `src/static/`은 그대로 `dist/`로 복사된다(CSS, 필터 스크립트, `_headers`, 파비콘). 외부 폰트·CDN 없이 로컬 자산만 쓴다.
 - 회사·고객 이름, 내부 주소, 개인 연락처는 소개 문구에 넣지 않는다. 이메일은 `src/data/site.json`의 `email`을 채우면 연락 구역에 나타난다.
 
+## 브랜치 운영
+
+- `main`은 프로덕션, `develop`은 통합·미리보기 브랜치다. 두 브랜치에 직접 커밋하지 않는다.
+- 작업은 `develop`에서 딴 작업 브랜치(`feat/` `fix/` `docs/` `chore/` + kebab-case)에서 하고, PR로 `develop`에 병합한다(squash).
+- 배포는 `develop` → `main` PR로 한다. 병합 커밋으로 합쳐 두 브랜치가 갈라지지 않게 한다.
+- 병합 후 작업 브랜치는 로컬·원격 모두 지운다. `main`·`develop`은 지우지 않는다.
+- 커밋 제목은 영어로 쓴다.
+
 <!-- ysm-baseline:start -->
 ## 공통 작업 규칙 (ysm baseline)
 
