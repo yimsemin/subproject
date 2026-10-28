@@ -1,0 +1,232 @@
+[
+  {
+    "id": "pptx",
+    "name": "_최종.pptx",
+    "category": "web",
+    "status": "available",
+    "visibility": "private",
+    "listed": true,
+    "url": "https://pptx.subproject.kr",
+    "summary": {
+      "ko": "발표·제출 직전의 PPTX를 브라우저에서 정리합니다. 폰트 참조 확인, 이미지·동영상 최적화, 메타데이터 정리를 하고 파일은 내 컴퓨터 밖으로 나가지 않습니다.",
+      "en": "Tidies a PPTX in the browser right before you present or submit it: font references, image and video optimization, metadata cleanup. Files never leave your computer."
+    }
+  },
+  {
+    "id": "uthabiti",
+    "name": "Uthabiti",
+    "category": "web",
+    "status": "available",
+    "visibility": "private",
+    "listed": true,
+    "url": "https://uthabiti.subproject.kr",
+    "summary": {
+      "ko": "원신 성유물을 “다음 레진을 어디에 쓸지” 기준으로 판단해 주는 비공식 팬 도구. 개선에 드는 레진을 확률 시뮬레이션으로 계산합니다.",
+      "en": "An unofficial fan tool that judges Genshin Impact artifacts by where to spend your next resin, using probability simulation to estimate the cost of each upgrade."
+    }
+  },
+  {
+    "id": "tracktxt",
+    "name": "TrackTXT",
+    "category": "web",
+    "status": "available",
+    "visibility": "private",
+    "listed": true,
+    "url": "https://tracktxt.subproject.kr",
+    "summary": {
+      "ko": "공개 Spotify 곡·앨범·플레이리스트 링크에서 제목과 아티스트를 복사 가능한 텍스트로 꺼내 줍니다. 자동화 도구를 위한 API도 제공합니다.",
+      "en": "Turns a public Spotify track, album or playlist link into copyable title and artist text. Also offers an API for automation tools."
+    }
+  },
+  {
+    "id": "videoready",
+    "name": "VideoReady",
+    "category": "web",
+    "status": "available",
+    "visibility": "private",
+    "listed": true,
+    "url": "https://videoready.subproject.kr",
+    "summary": {
+      "ko": "영상을 서버에 올리지 않고 브라우저에서 줄이거나, 어디서든 재생되는 MP4(H.264·AAC)로 바꿉니다. 같은 기능을 AI 에이전트도 쓸 수 있습니다.",
+      "en": "Shrinks a video or converts it to widely playable MP4 (H.264, AAC) in the browser without uploading it. AI agents can use the same features."
+    }
+  },
+  {
+    "id": "wakeup",
+    "name": "Wakeup",
+    "category": "web",
+    "status": "available",
+    "visibility": "public",
+    "listed": true,
+    "url": "https://wakeup.subproject.kr",
+    "repo": "https://github.com/yimsemin/wakeup",
+    "summary": {
+      "ko": "브라우저에서 화면이 꺼지거나 잠기지 않게 합니다. 타이머, 전체 화면 시계, 오프라인 실행을 지원합니다.",
+      "en": "Keeps a PC or Mac screen awake from the browser. Comes with a timer, a full-screen clock and offline support."
+    }
+  },
+  {
+    "id": "simple-light",
+    "name": "Simple Light",
+    "category": "web",
+    "status": "available",
+    "visibility": "private",
+    "listed": true,
+    "summary": {
+      "ko": "모니터·노트북·태블릿 화면을 단색, 그라데이션, 링 조명으로 씁니다. 설정은 주소(URL)에만 저장되어 링크로 공유할 수 있습니다.",
+      "en": "Turns a monitor, laptop or tablet screen into a solid, gradient or ring light. Settings live only in the URL, so a link shares them."
+    }
+  },
+  {
+    "id": "blockplan",
+    "name": "BlockPlan",
+    "category": "web",
+    "status": "available",
+    "visibility": "private",
+    "listed": true,
+    "summary": {
+      "ko": "에너지 보도블록을 어디에 몇 개 놓을지 브라우저에서 그리면 설치 수량을 자동으로 세어 주는 협의용 배치 도구입니다.",
+      "en": "Draw where energy paving blocks go in the browser and get the installation count automatically. Built for early planning discussions."
+    }
+  },
+  {
+    "id": "estipdf",
+    "name": "EstiPDF",
+    "category": "web",
+    "status": "available",
+    "visibility": "private",
+    "listed": true,
+    "summary": {
+      "ko": "로그인이나 서버 저장 없이 브라우저에서 견적서를 작성해 A4 PDF로 내려받습니다.",
+      "en": "Write a quotation in the browser and download it as an A4 PDF, with no login and nothing stored on a server."
+    }
+  },
+  {
+    "id": "hwpilot",
+    "name": "hwpilot",
+    "category": "agent",
+    "status": "available",
+    "visibility": "private",
+    "listed": true,
+    "summary": {
+      "ko": "AI 에이전트가 한글(HWPX) 제안서를 원본 서식 그대로 안전하게 고치도록 돕습니다. 지시한 부분만 바뀐 다음 버전 파일을 만듭니다.",
+      "en": "Lets an AI agent edit Korean HWPX proposals safely while keeping the original formatting. It produces the next version with only the requested changes."
+    }
+  },
+  {
+    "id": "imweb-editor-kit",
+    "name": "imweb-editor-kit",
+    "category": "agent",
+    "status": "available",
+    "visibility": "private",
+    "listed": true,
+    "summary": {
+      "ko": "AI 에이전트가 아임웹 디자인 모드에서 홈페이지를 수정할 때 드는 탐색과 토큰을 줄이는 비공식 도구입니다. 게시는 항상 사람이 직접 합니다.",
+      "en": "An unofficial toolkit that cuts the exploration and tokens an AI agent spends editing a site in Imweb's design mode. Publishing is always left to a human."
+    }
+  },
+  {
+    "id": "patent-management",
+    "name": "patent-management",
+    "category": "agent",
+    "status": "available",
+    "visibility": "private",
+    "listed": true,
+    "summary": {
+      "ko": "AI 에이전트가 특허로와 KIPRIS로 회사의 국내 특허 목록과 공식 문서를 정리하도록 돕는 스킬 모음입니다.",
+      "en": "A set of agent skills that keep a company's Korean patent ledger and official documents in order using Patent Go and KIPRIS."
+    }
+  },
+  {
+    "id": "chatgpt-conversation-maintenance",
+    "name": "ChatGPT 대화 유지관리",
+    "nameEn": "ChatGPT Conversation Maintenance",
+    "category": "agent",
+    "status": "available",
+    "visibility": "public",
+    "listed": true,
+    "repo": "https://github.com/yimsemin/chatgpt-conversation-maintenance",
+    "summary": {
+      "ko": "로그인한 ChatGPT 대화를 프로젝트별로 정리하고 제목 형식을 통일하는 개인용 도구. 모든 변경은 화면에서 직접 승인합니다.",
+      "en": "A personal tool that files your ChatGPT conversations into projects and normalizes their titles. Every change is approved by you in a local web UI."
+    }
+  },
+  {
+    "id": "ysm-skills",
+    "name": "ysm-skills",
+    "category": "agent",
+    "status": "available",
+    "visibility": "private",
+    "listed": true,
+    "summary": {
+      "ko": "여러 컴퓨터와 새 프로젝트에서 에이전트 작업환경을 같은 기준으로 자동 세팅하는 스킬과 베이스라인 모음입니다.",
+      "en": "Skills and a baseline that set up the same agent working environment across computers and new projects."
+    }
+  },
+  {
+    "id": "vizrack",
+    "name": "VizRack",
+    "category": "app",
+    "status": "available",
+    "visibility": "public",
+    "listed": true,
+    "repo": "https://github.com/yimsemin/VizRack",
+    "summary": {
+      "ko": "Windows에서 재생 중인 음악에 맞춰 움직이는 휴대용 비주얼라이저. 별도 드라이버 없이 바로 동작하고 창을 닫아도 음악은 멈추지 않습니다.",
+      "en": "A portable visualizer that moves with whatever music is playing on Windows. No audio driver needed, and the music keeps playing if you close it."
+    }
+  },
+  {
+    "id": "youtube-live-recorder",
+    "name": "YouTube LIVE Recorder",
+    "category": "app",
+    "status": "available",
+    "visibility": "public",
+    "listed": true,
+    "repo": "https://github.com/yimsemin/youtube-live-recorder",
+    "summary": {
+      "ko": "공개 유튜브 라이브를 일반 시청자 방식으로 녹화해 끊김 없는 MKV 조각으로 저장하는 Windows 도구. 장애 감시, 보조 녹화, 로컬 대시보드를 갖췄습니다.",
+      "en": "A Windows tool that records a public YouTube live stream as an ordinary viewer into continuous MKV parts, with failure monitoring, fallback capture and a local dashboard."
+    }
+  },
+  {
+    "id": "python-lda-topic-modeling",
+    "name": "python-lda-topic-modeling",
+    "category": "record",
+    "status": "available",
+    "visibility": "public",
+    "listed": true,
+    "repo": "https://github.com/yimsemin/python-lda-topic-modeling",
+    "summary": {
+      "ko": "한국어 토픽모델링 파이썬 코드. Gensim과 kiwipiepy를 쓰며 설정 함수 한 곳만 고쳐 실행합니다.",
+      "en": "Python code for Korean topic modeling with Gensim and kiwipiepy. You only edit one settings function to run it."
+    }
+  },
+  {
+    "id": "commerce-decision-demo",
+    "name": "Commerce Decision Lab",
+    "category": "record",
+    "status": "archived",
+    "visibility": "public",
+    "listed": true,
+    "url": "https://yimsemin.github.io/commerce-decision-demo/",
+    "repo": "https://github.com/yimsemin/commerce-decision-demo",
+    "summary": {
+      "ko": "파편화된 합성 커머스 데이터를 경영 의사결정의 근거로 바꾸는 Google Cloud 포트폴리오 샘플. 결과를 랜딩페이지로 남기고 보관했습니다.",
+      "en": "A Google Cloud portfolio sample that turns fragmented synthetic commerce data into grounds for business decisions. Archived with a landing page of the results."
+    }
+  },
+  {
+    "id": "fluid-stabilizer",
+    "name": "fluid-stabilizer",
+    "category": "record",
+    "status": "archived",
+    "visibility": "public",
+    "listed": true,
+    "repo": "https://github.com/yimsemin/fluid-stabilizer",
+    "summary": {
+      "ko": "사람이 모는 트럭의 개방형 액체 탱크가 넘치지 않도록 AI가 2축 스태빌라이저를 제어하는 Physical AI 시뮬레이션. 연구·학습 기록으로 공개합니다.",
+      "en": "A Physical AI simulation where an AI drives a two-axis stabilizer so an open liquid tank on a human-driven truck does not spill. Published as a research and learning record."
+    }
+  }
+]

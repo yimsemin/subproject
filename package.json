@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "dev": "npm run build && npx --yes serve dist"
+    "check": "node scripts/build.mjs && node scripts/check.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs"
   }
 }

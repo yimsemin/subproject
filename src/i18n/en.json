@@ -1,0 +1,47 @@
+{
+  "htmlLang": "en",
+  "siteName": "subproject",
+  "metaTitle": "subproject · Small tools, made because I needed them",
+  "metaDescription": "Web tools that finish inside the browser and automations that let AI agents do the work. A hub for the projects built under subproject.",
+  "skip": "Skip to content",
+  "title": "Small tools, made because I needed them.",
+  "intro": "I build web tools that finish inside the browser and automations that let AI agents do the work. This page is the index of those projects.",
+  "summary": "{total} projects · {available} ready to use",
+  "projectsTitle": "Projects",
+  "filterLabel": "Category",
+  "filterAll": "All",
+  "legend": "Available means you can use it now, In development means it is being built, and Archived means development has stopped.",
+  "countShown": "Showing {n}",
+  "categories": {
+    "web": "Web tools",
+    "agent": "Agents & automation",
+    "app": "Apps",
+    "record": "Research & notes"
+  },
+  "status": {
+    "available": "Available",
+    "building": "In development",
+    "archived": "Archived"
+  },
+  "visibility": {
+    "public": "Public repo",
+    "private": "Private repo"
+  },
+  "open": "Open",
+  "repo": "GitHub",
+  "aboutTitle": "How I build",
+  "aboutBody": [
+    "I build the tools I need. I start from doing the work inside the browser, with no server or login, and keep files on your computer wherever I can.",
+    "I also turn the way I work with AI agents into tools, and put a human check at the steps where mistakes are easy to make."
+  ],
+  "contactTitle": "Contact",
+  "contactBody": "For collaboration or hiring, reach me on GitHub or by email.",
+  "contactGithub": "GitHub",
+  "contactEmail": "Email",
+  "footer": "© subproject",
+  "langSwitchText": "한국어",
+  "langSwitchLabel": "한국어로 보기",
+  "notFoundTitle": "Page not found",
+  "notFoundBody": "The address has changed or the page does not exist.",
+  "notFoundHome": "Back to start"
+}

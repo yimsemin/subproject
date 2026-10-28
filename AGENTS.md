@@ -2,20 +2,29 @@
 
 ## 프로젝트
 
-- **의도**: subproject.kr 도메인의 홈페이지를 만들어 GitHub 저장소 기반으로 Cloudflare Pages에 배포한다.
-- **사용자**: subproject.kr 방문자. 상세 내용은 정해지면 채운다.
-- **성공 기준**: `main` 푸시 시 Cloudflare Pages가 자동 배포하고 subproject.kr에서 열린다.
-- **하지 않을 것**: 서버·로그인·DB. 사이트 내용·디자인은 아직 정해지지 않았다.
+- **의도**: subproject.kr은 만든 프로젝트를 소개하고 연결하는 허브 홈페이지다. GitHub 저장소를 Cloudflare Pages에 연동해 배포한다.
+- **사용자**: 1순위 채용·협업 제안자, 2순위 도구 사용자.
+- **성공 기준**: 처음 온 사람이 한 화면에서 무엇을 만드는 사람인지, 어떤 프로젝트가 지금 쓸 수 있는지 알고 해당 주소로 이동한다. 한국어와 영어를 모두 제공한다.
+- **하지 않을 것**: 서버·로그인·DB·분석 도구, 프로젝트별 상세 페이지(프로젝트 주소는 `<프로젝트>.subproject.kr`로 이미 따로 배포한다).
 
 ## 실행과 검증
 
 ```sh
-npm run build   # src/ -> dist/
-npm run dev     # 빌드 후 로컬 서버
+npm run dev     # 빌드 후 http://127.0.0.1:4173
+npm run check   # 빌드 + 콘텐츠·노출·글자 크기 검사 (푸시 전)
 ```
 
-- 정적 사이트(Node 22, 의존성 없음). Cloudflare Pages 표준: 빌드 `npm run build`, 출력 `dist`, 프로덕션 `main`, 미리보기 `develop`.
-- Cloudflare 배포·도메인 설정은 이 저장소가 아니라 ysm-skills 저장소에서 한다.
+- 의존성 없는 정적 사이트(Node 24). Cloudflare Pages 표준: 빌드 `npm run build`, 출력 `dist`, 프로덕션 `main`, 미리보기 `develop`.
+- Cloudflare 배포·도메인 설정은 이 저장소가 아니라 ysm-skills 저장소에서 한다. 페이지를 다 만든 뒤 요청한다.
+
+## 구조와 콘텐츠 규칙
+
+- `src/data/projects.json`이 프로젝트 목록의 정본이다. 항목 하나가 한 프로젝트이며 `listed: false`면 사이트에 나오지 않는다. 비공개 저장소(`visibility: private`)에는 `repo` 링크를 둘 수 없다(검사가 막는다).
+- 상태는 `available`(지금 쓸 수 있음), `building`(만드는 중), `archived`(개발 중단) 세 가지뿐이다. 이 밖의 상태를 늘리지 않는다.
+- 문구는 `src/i18n/ko.json`·`en.json`이 정본이고 두 파일의 키가 같아야 한다. 프로젝트 소개는 항목의 `summary.ko`·`summary.en`에 둔다. 한국어는 `/`, 영어는 `/en/`로 빌드 때 각각 HTML을 만든다(`scripts/build.mjs`).
+- 프로젝트 이름은 한국어 이름과 영어 이름이 다를 때만 `nameEn`을 쓴다.
+- `src/static/`은 그대로 `dist/`로 복사된다(CSS, 필터 스크립트, `_headers`, 파비콘). 외부 폰트·CDN 없이 로컬 자산만 쓴다.
+- 회사·고객 이름, 내부 주소, 개인 연락처는 소개 문구에 넣지 않는다. 이메일은 `src/data/site.json`의 `email`을 채우면 연락 구역에 나타난다.
 
 <!-- ysm-baseline:start -->
 ## 공통 작업 규칙 (ysm baseline)
