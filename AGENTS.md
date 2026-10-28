@@ -29,8 +29,8 @@ npm run check   # 빌드 + 콘텐츠·노출·글자 크기 검사 (푸시 전)
 ## 브랜치 운영
 
 - `main`은 프로덕션, `develop`은 통합·미리보기 브랜치다. 두 브랜치에 직접 커밋하지 않는다.
-- 작업은 `develop`에서 딴 작업 브랜치(`feat/` `fix/` `docs/` `chore/` + kebab-case)에서 하고, PR로 `develop`에 병합한다(squash).
-- 배포는 `develop` → `main` PR로 한다. 병합 커밋으로 합쳐 두 브랜치가 갈라지지 않게 한다.
+- 작업은 `develop`에서 딴 작업 브랜치(`feat/` `fix/` `docs/` `chore/` + kebab-case)에서 하고, PR로 `develop`에 병합한다.
+- 배포는 `develop` → `main` PR로 한다.
 - 병합 후 작업 브랜치는 로컬·원격 모두 지운다. `main`·`develop`은 지우지 않는다.
 - 커밋 제목은 영어로 쓴다.
 
