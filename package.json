@@ -1,0 +1,11 @@
+{
+  "name": "subproject",
+  "version": "0.1.0",
+  "private": true,
+  "description": "subproject.kr 홈페이지",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "npm run build && npx --yes serve dist"
+  }
+}
