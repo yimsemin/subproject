@@ -72,6 +72,7 @@
     "status": "available",
     "visibility": "private",
     "listed": true,
+    "url": "https://simple-light.subproject.kr",
     "summary": {
       "ko": "모니터·노트북·태블릿 화면을 단색, 그라데이션, 링 조명으로 씁니다. 설정은 주소(URL)에만 저장되어 링크로 공유할 수 있습니다.",
       "en": "Turns a monitor, laptop or tablet screen into a solid, gradient or ring light. Settings live only in the URL, so a link shares them."
