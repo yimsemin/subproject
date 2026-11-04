@@ -191,6 +191,19 @@
     }
   },
   {
+    "id": "gitbook-hangul-ime-fix",
+    "name": "gitbook-hangul-ime-fix",
+    "category": "utility",
+    "status": "available",
+    "visibility": "public",
+    "listed": true,
+    "repo": "https://github.com/yimsemin/gitbook-hangul-ime-fix",
+    "summary": {
+      "ko": "GitBook 편집기에서 한글을 입력할 때 스페이스·줄바꿈이 사라지고 글자가 깨지는 문제를 우회하는 유저스크립트입니다. 본문과 코멘트 입력창에서 동작합니다.",
+      "en": "A userscript that works around Korean IME bugs in the GitBook editor, where spaces and line breaks vanish and characters break apart. Works in the body and comment boxes."
+    }
+  },
+  {
     "id": "python-lda-topic-modeling",
     "name": "python-lda-topic-modeling",
     "category": "utility",
