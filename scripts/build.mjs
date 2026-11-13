@@ -1,5 +1,5 @@
 import { cp, mkdir, rm, writeFile } from "node:fs/promises";
-import { CATEGORIES, LANGS, STATUSES, loadContent } from "./content.mjs";
+import { CATEGORIES, LANGS, loadContent } from "./content.mjs";
 
 const { site, projects, messages } = await loadContent();
 
@@ -14,33 +14,32 @@ const otherLang = (lang) => LANGS.find((l) => l !== lang);
 const listed = projects
   .filter((p) => p.listed)
   .map((p, index) => ({ ...p, index }))
-  .sort((a, b) => STATUSES.indexOf(a.status) - STATUSES.indexOf(b.status) || a.index - b.index);
+  .sort((a, b) => Number(a.status === "archived") - Number(b.status === "archived") || a.index - b.index);
 
 function projectRow(project, lang, t) {
   const name = lang === "en" && project.nameEn ? project.nameEn : project.name;
   const links = [];
   if (project.url) links.push(`<li><a href="${esc(project.url)}" rel="noopener">${esc(t.open)} ↗</a></li>`);
   if (project.repo) links.push(`<li><a href="${esc(project.repo)}" rel="noopener">${esc(t.repo)} ↗</a></li>`);
-  return `        <li class="project" data-category="${project.category}">
+  return `        <li class="project" data-category="${project.category}" data-archived="${project.status === "archived"}">
           <div>
             <h3 class="p-name">${esc(name)}</h3>
-            <p class="p-meta"><span class="status" data-status="${project.status}">${esc(t.status[project.status])}</span><span>${esc(t.categories[project.category])}</span><span>${esc(t.visibility[project.visibility])}</span></p>
+            <p class="p-tags"><span class="category-tag">${esc(t.categories[project.category])}</span>${project.status === "archived" ? ` <span class="archive-tag">${esc(t.archived)}</span>` : ""}</p>
           </div>
           <p class="p-sum">${esc(project.summary[lang])}</p>
-          <ul class="p-links">${links.join("")}</ul>
+${links.length ? `          <ul class="p-links">${links.join("")}</ul>\n` : ""}
         </li>`;
 }
 
 function page(lang) {
   const t = messages[lang];
   const other = otherLang(lang);
+  const archived = listed.filter((p) => p.status === "archived").length;
   const usedCategories = CATEGORIES.filter((c) => listed.some((p) => p.category === c));
-  const available = listed.filter((p) => p.status === "available").length;
   const filters = [
     `<li><button type="button" data-filter="all" aria-pressed="true">${esc(t.filterAll)}</button></li>`,
-    ...usedCategories.map(
-      (c) => `<li><button type="button" data-filter="${c}" aria-pressed="false">${esc(t.categories[c])}</button></li>`,
-    ),
+    ...usedCategories.map((c) => `<li><button type="button" data-filter="${c}" aria-pressed="false">${esc(t.categories[c])}(${listed.filter((p) => p.category === c).length})</button></li>`),
+    ...(archived ? [`<li class="archive-filter"><span class="filter-separator" aria-hidden="true">|</span><button type="button" data-filter="archived" aria-pressed="false">${esc(t.archived)}(${archived})</button></li>`] : []),
   ].join("\n        ");
   const contact = [
     `<li><a href="${esc(site.github)}" rel="noopener">${esc(t.contactGithub)} ↗</a></li>`,
@@ -55,6 +54,7 @@ function page(lang) {
   <title>${esc(t.metaTitle)}</title>
   <meta name="description" content="${esc(t.metaDescription)}">
   <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0CCCCC">
   <link rel="canonical" href="${canonical(lang)}">
 ${LANGS.map((l) => `  <link rel="alternate" hreflang="${l}" href="${canonical(l)}">`).join("\n")}
   <link rel="alternate" hreflang="x-default" href="${canonical("ko")}">
@@ -63,7 +63,10 @@ ${LANGS.map((l) => `  <link rel="alternate" hreflang="${l}" href="${canonical(l)
   <meta property="og:title" content="${esc(t.metaTitle)}">
   <meta property="og:description" content="${esc(t.metaDescription)}">
   <meta property="og:url" content="${canonical(lang)}">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:image" content="${site.origin}/logo-light.png">
+  <meta property="og:image:alt" content="subProject">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
   <link rel="stylesheet" href="/style.css">
   <script src="/filter.js" defer></script>
 </head>
@@ -71,7 +74,7 @@ ${LANGS.map((l) => `  <link rel="alternate" hreflang="${l}" href="${canonical(l)
   <a class="skip" href="#main">${esc(t.skip)}</a>
   <div class="shell">
     <header class="site-header">
-      <a class="brand" href="${base(lang)}">${esc(t.siteName)}</a>
+      <a class="brand" href="${base(lang)}"><picture><source media="(prefers-color-scheme: dark)" srcset="/logo-dark.png"><img src="/logo-light.png" width="612" height="344" alt="${esc(t.siteName)}"></picture></a>
       <a class="lang" href="${base(other)}" hreflang="${other}" lang="${other}" aria-label="${esc(t.langSwitchLabel)}">${esc(t.langSwitchText)}</a>
     </header>
 
@@ -79,16 +82,13 @@ ${LANGS.map((l) => `  <link rel="alternate" hreflang="${l}" href="${canonical(l)
       <section class="hero">
         <h1>${esc(t.title)}</h1>
         <p class="intro">${esc(t.intro)}</p>
-        <p class="count">${esc(fill(t.summary, { total: listed.length, available }))}</p>
+        <p class="count"><span>${esc(fill(t.summary, { total: listed.length }))}</span>${archived ? ` <small>${esc(fill(t.archiveSummary, { archived }))}</small>` : ""}</p>
       </section>
 
-      <section class="projects" aria-labelledby="projects-title">
-        <h2 class="section-title" id="projects-title">${esc(t.projectsTitle)}</h2>
+      <section class="projects" aria-label="${esc(t.filterLabel)}">
         <ul class="filters" aria-label="${esc(t.filterLabel)}" hidden>
         ${filters}
         </ul>
-        <p class="legend">${esc(t.legend)}</p>
-        <p class="shown" aria-live="polite" data-template="${esc(t.countShown)}"></p>
         <ul class="list">
 ${listed.map((p) => projectRow(p, lang, t)).join("\n")}
         </ul>
@@ -131,7 +131,9 @@ function notFound() {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
   <title>404 · ${esc(messages.ko.siteName)}</title>
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0CCCCC">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
