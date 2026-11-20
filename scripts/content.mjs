@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 
 export const LANGS = ["ko", "en"];
-export const CATEGORIES = ["web", "agent", "app", "record"];
+export const CATEGORIES = ["work", "custom", "hobby", "utility"];
 export const STATUSES = ["available", "building", "archived"];
 export const VISIBILITIES = ["public", "private"];
 

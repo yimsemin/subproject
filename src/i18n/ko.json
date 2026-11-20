@@ -13,10 +13,10 @@
   "legend": "사용 가능은 지금 쓸 수 있다는 뜻이고, 개발 중은 만들고 있다는 뜻이며, 보관은 개발을 멈췄다는 뜻입니다.",
   "countShown": "{n}개 표시 중",
   "categories": {
-    "web": "웹 도구",
-    "agent": "에이전트·자동화",
-    "app": "앱",
-    "record": "연구·기록"
+    "work": "업무 도구",
+    "custom": "맞춤 제작",
+    "hobby": "취미",
+    "utility": "유틸리티"
   },
   "status": {
     "available": "사용 가능",

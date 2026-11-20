@@ -13,10 +13,10 @@
   "legend": "Available means you can use it now, In development means it is being built, and Archived means development has stopped.",
   "countShown": "Showing {n}",
   "categories": {
-    "web": "Web tools",
-    "agent": "Agents & automation",
-    "app": "Apps",
-    "record": "Research & notes"
+    "work": "Work tools",
+    "custom": "Custom builds",
+    "hobby": "Hobby",
+    "utility": "Utilities"
   },
   "status": {
     "available": "Available",
