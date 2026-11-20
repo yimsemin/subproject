@@ -1,23 +1,20 @@
 (function () {
   var bar = document.querySelector(".filters");
   var rows = Array.prototype.slice.call(document.querySelectorAll(".project"));
-  var shown = document.querySelector(".shown");
-  if (!bar || !rows.length || !shown) return;
+  if (!bar || !rows.length) return;
 
-  var template = shown.getAttribute("data-template") || "{n}";
   var buttons = Array.prototype.slice.call(bar.querySelectorAll("button"));
 
-  function apply(category) {
-    var n = 0;
+  function apply(filter) {
     rows.forEach(function (row) {
-      var match = category === "all" || row.getAttribute("data-category") === category;
+      var match = filter === "all" || (filter === "archived"
+        ? row.getAttribute("data-archived") === "true"
+        : row.getAttribute("data-category") === filter);
       row.hidden = !match;
-      if (match) n += 1;
     });
     buttons.forEach(function (button) {
-      button.setAttribute("aria-pressed", String(button.getAttribute("data-filter") === category));
+      button.setAttribute("aria-pressed", String(button.getAttribute("data-filter") === filter));
     });
-    shown.textContent = category === "all" ? "" : template.replace("{n}", String(n));
   }
 
   buttons.forEach(function (button) {
