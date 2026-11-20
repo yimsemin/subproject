@@ -19,13 +19,16 @@ const listed = projects
 function projectRow(project, lang, t) {
   const name = lang === "en" && project.nameEn ? project.nameEn : project.name;
   const links = [];
+  const githubRepo = project.repo?.match(/^https:\/\/github\.com\/([\w.-]+)\/([\w.-]+)\/?$/i);
+  const updateRepo = project.visibility === "public" && project.status !== "archived" && githubRepo
+    ? `${encodeURIComponent(githubRepo[1])}/${encodeURIComponent(githubRepo[2])}` : "";
   if (project.url) links.push(`<li><a href="${esc(project.url)}" rel="noopener">${esc(t.open)} ↗</a></li>`);
   if (project.repo) links.push(`<li><a href="${esc(project.repo)}" rel="noopener">${esc(t.repo)} ↗</a></li>`);
   return `        <li class="project" data-category="${project.category}" data-archived="${project.status === "archived"}">
           <div>
             <h3 class="p-name">${esc(name)}</h3>
             <p class="p-tags"><span class="category-tag">${esc(t.categories[project.category])}</span>${project.status === "archived" ? ` <span class="archive-tag">${esc(t.archived)}</span>` : ""}</p>
-          </div>
+${updateRepo ? `            <p class="p-updated" data-github-repo="${esc(updateRepo)}" hidden><span>last updated</span> <time></time></p>\n` : ""}          </div>
           <p class="p-sum">${esc(project.summary[lang])}</p>
 ${links.length ? `          <ul class="p-links">${links.join("")}</ul>\n` : ""}
         </li>`;
@@ -69,6 +72,7 @@ ${LANGS.map((l) => `  <link rel="alternate" hreflang="${l}" href="${canonical(l)
   <link rel="apple-touch-icon" href="/favicon.png">
   <link rel="stylesheet" href="/style.css">
   <script src="/filter.js" defer></script>
+  <script src="/updates.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">${esc(t.skip)}</a>

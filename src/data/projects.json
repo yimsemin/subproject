@@ -110,8 +110,8 @@
     "visibility": "private",
     "listed": true,
     "summary": {
-      "ko": "AI 에이전트가 한글(HWPX) 제안서를 원본 서식 그대로 안전하게 고치도록 돕습니다. 지시한 부분만 바뀐 다음 버전 파일을 만듭니다.",
-      "en": "Lets an AI agent edit Korean HWPX proposals safely while keeping the original formatting. It produces the next version with only the requested changes."
+      "ko": "AI 에이전트가 한글(HWPX) 제안서를 작성·수정하고 원본 서식을 유지하도록 돕습니다. 편집 결과와 변경 사항은 사람이 검토합니다.",
+      "en": "Helps AI agents draft and edit Korean HWPX proposals while preserving formatting. People review the edited document and changes."
     }
   },
   {
@@ -178,10 +178,22 @@
     }
   },
   {
+    "id": "kakaotalk-archive",
+    "name": "KakaoTalk Archive",
+    "category": "utility",
+    "status": "building",
+    "visibility": "private",
+    "listed": true,
+    "summary": {
+      "ko": "Windows 카카오톡 대화를 방별로 백업하고 첨부파일과 미디어를 내려받아 백업을 검증하는 비공식 도구입니다.",
+      "en": "An unofficial Windows tool for backing up KakaoTalk conversations by chat, downloading attachments and media, and verifying the backup."
+    }
+  },
+  {
     "id": "youtube-live-recorder",
     "name": "YouTube LIVE Recorder",
     "category": "utility",
-    "status": "available",
+    "status": "archived",
     "visibility": "public",
     "listed": true,
     "repo": "https://github.com/yimsemin/youtube-live-recorder",

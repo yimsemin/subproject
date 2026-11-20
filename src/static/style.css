@@ -237,6 +237,11 @@ button:focus-visible {
 
 .p-sum { margin: 0; }
 
+.p-updated { display: inline-flex; overflow: hidden; margin: 8px 0 0; border-radius: 3px; line-height: 1.5; }
+.p-updated span { padding: 0 6px; color: #fff; background: #555; }
+.p-updated time { padding: 0 6px; color: #111; background: #0ccccc; }
+.p-updated[hidden] { display: none; }
+
 .p-links {
   display: flex;
   flex-direction: column;
