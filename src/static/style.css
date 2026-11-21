@@ -108,42 +108,39 @@ button:focus-visible {
 
 /* hero */
 
-.hero { margin-top: clamp(84px, 14vw, 156px); }
+.hero { margin-top: clamp(32px, 6vw, 64px); }
 
 .hero h1 {
-  max-width: 13ch;
   margin: 0;
-  font-size: clamp(2.7rem, 7.2vw, 5.2rem);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 700;
-  line-height: 1.06;
-  letter-spacing: -0.055em;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
 }
 
 .hero .intro {
-  max-width: 36em;
-  margin: 28px 0 0;
-  color: var(--muted);
-}
-
-.hero .count {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 4px 10px;
-  margin: 28px 0 0;
-  font-size: 1.25rem;
-  font-weight: 620;
-}
-
-.hero .count small {
-  font-size: 1rem;
-  font-weight: 400;
+  margin: 8px 0 0;
   color: var(--muted);
 }
 
 /* projects */
 
-.projects { margin-top: clamp(72px, 11vw, 128px); }
+.projects { margin-top: clamp(28px, 4vw, 44px); }
+
+.projects .count {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  margin: 0 0 4px;
+  font-weight: 620;
+}
+
+.projects .count small {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--muted);
+}
 
 .section-title {
   margin: 0;
@@ -194,7 +191,7 @@ button:focus-visible {
 }
 
 .list {
-  margin: 28px 0 0;
+  margin: 12px 0 0;
   padding: 0;
   list-style: none;
   border-top: 1px solid var(--ink);
@@ -313,7 +310,6 @@ footer p { margin: 0; }
 
 @media (max-width: 720px) {
   .shell { width: calc(100% - 36px); padding-top: 22px; }
-  .hero h1 { max-width: 9ch; }
 }
 
 @media (prefers-reduced-motion: reduce) {
