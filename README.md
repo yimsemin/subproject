@@ -14,9 +14,9 @@ Node 24가 필요하다(`.node-version`). 설치할 의존성은 없다.
 
 ```sh
 npm run dev     # 빌드 후 http://127.0.0.1:4173
-npm run check   # 빌드 + 콘텐츠·글자 크기·미리보기 서버 검사
+npm run check   # 빌드, 콘텐츠·번역·글자 크기 검증, 미리보기·업데이트 테스트
 ```
 
 ## 배포
 
-Cloudflare Pages(GitHub 연동)로 배포한다. 빌드 `npm run build`, 출력 `dist`. 배포 설정은 [ysm-skills](https://github.com/yimsemin/ysm-skills)에서 한다.
+Cloudflare Pages와 GitHub를 연결해 배포한다. 빌드 명령은 `npm run build`, 출력 폴더는 `dist`다. 프로덕션은 `main`, 미리보기는 `develop`을 사용한다. 배포와 도메인 설정은 [ysm-skills](https://github.com/yimsemin/ysm-skills)에서 관리한다.
