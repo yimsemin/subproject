@@ -1,34 +1,15 @@
 {
   "htmlLang": "en",
-  "siteName": "subproject",
-  "metaTitle": "subproject · Small tools, made because I needed them",
-  "metaDescription": "Web tools that finish inside the browser and automations that let AI agents do the work. A hub for the projects built under subproject.",
+  "siteName": "subProject",
+  "metaTitle": "subProject · Small tools, made because I needed them",
+  "metaDescription": "Web tools that finish inside the browser and automations that let AI agents do the work. A hub for the projects built under subProject.",
   "skip": "Skip to content",
   "title": "Small tools, made because I needed them.",
   "intro": "I build web tools that finish inside the browser and automations that let AI agents do the work. This page is the index of those projects.",
-  "summary": "{total} projects · {available} ready to use",
-  "projectsTitle": "Projects",
-  "filterLabel": "Category",
-  "filterAll": "All",
-  "legend": "Available means you can use it now, In development means it is being built, and Archived means development has stopped.",
-  "countShown": "Showing {n}",
-  "categories": {
-    "work": "Work tools",
-    "custom": "Custom builds",
-    "hobby": "Hobby",
-    "utility": "Utilities"
-  },
-  "status": {
-    "available": "Available",
-    "building": "In development",
-    "archived": "Archived"
-  },
-  "visibility": {
-    "public": "Public repo",
-    "private": "Private repo"
-  },
+  "summary": "{total} subProject projects",
   "open": "Open",
   "repo": "GitHub",
+  "lastUpdated": "Last updated",
   "aboutTitle": "How I build",
   "aboutBody": [
     "I build the tools I need. I start from doing the work inside the browser, with no server or login, and keep files on your computer wherever I can.",
@@ -36,12 +17,25 @@
   ],
   "contactTitle": "Contact",
   "contactBody": "For collaboration or hiring, reach me on GitHub or by email.",
+  "contactGithubOnly": "For collaboration or hiring, reach me on GitHub.",
   "contactGithub": "GitHub",
   "contactEmail": "Email",
-  "footer": "© subproject",
+  "footer": "© subProject",
   "langSwitchText": "한국어",
   "langSwitchLabel": "한국어로 보기",
   "notFoundTitle": "Page not found",
   "notFoundBody": "The address has changed or the page does not exist.",
-  "notFoundHome": "Back to start"
+  "notFoundHome": "Back to start",
+  "archiveSummary": "(including {archived} archived)",
+  "archived": "Archived",
+  "filterLabel": "Project filters",
+  "projectsLabel": "Projects",
+  "filterAll": "All",
+  "filterCount": "{label} ({count})",
+  "categories": {
+    "work": "Work tools",
+    "custom": "Custom builds",
+    "hobby": "Hobby",
+    "utility": "Utilities"
+  }
 }

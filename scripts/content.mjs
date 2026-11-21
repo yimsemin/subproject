@@ -16,12 +16,16 @@ export async function loadContent() {
   return { site, projects, messages };
 }
 
-function keys(value, prefix = "") {
-  if (Array.isArray(value)) return [prefix];
-  if (value && typeof value === "object") {
-    return Object.entries(value).flatMap(([key, child]) => keys(child, prefix ? `${prefix}.${key}` : key));
+function messageEntries(value, prefix = "") {
+  if (value && typeof value === "object" && !Array.isArray(value)) {
+    return Object.entries(value).flatMap(([key, child]) => messageEntries(child, prefix ? `${prefix}.${key}` : key));
   }
-  return [prefix];
+  return [[prefix, value]];
+}
+
+function placeholders(message) {
+  const text = Array.isArray(message) ? message.join("\n") : String(message);
+  return [...new Set(Array.from(text.matchAll(/\{(\w+)\}/g), (match) => match[1]))].sort();
 }
 
 export function validate({ site, projects, messages }) {
@@ -30,10 +34,18 @@ export function validate({ site, projects, messages }) {
 
   if (!/^https:\/\/[^/]+$/.test(site.origin)) fail("site.origin은 끝 슬래시 없는 https 주소여야 합니다");
 
-  const koKeys = new Set(keys(messages.ko));
-  for (const key of keys(messages.en)) if (!koKeys.has(key)) fail(`i18n: en에만 있는 키 ${key}`);
-  const enKeys = new Set(keys(messages.en));
-  for (const key of koKeys) if (!enKeys.has(key)) fail(`i18n: ko에만 있는 키 ${key}`);
+  const koMessages = new Map(messageEntries(messages.ko));
+  const enMessages = new Map(messageEntries(messages.en));
+  for (const key of enMessages.keys()) {
+    if (!koMessages.has(key)) fail(`i18n: en에만 있는 키 ${key}`);
+  }
+  for (const [key, koMessage] of koMessages) {
+    if (!enMessages.has(key)) {
+      fail(`i18n: ko에만 있는 키 ${key}`);
+    } else if (placeholders(koMessage).join(",") !== placeholders(enMessages.get(key)).join(",")) {
+      fail(`i18n: ${key}의 치환 변수가 ko와 en에서 다릅니다`);
+    }
+  }
 
   const ids = new Set();
   for (const project of projects) {
