@@ -92,10 +92,10 @@ ${LANGS.map((l) => `  <link rel="alternate" hreflang="${l}" href="${canonical(l)
       <section class="hero">
         <h1>${esc(t.title)}</h1>
         <p class="intro">${esc(t.intro)}</p>
-        <p class="count"><span>${esc(fill(t.summary, { total: listed.length }))}</span>${archived ? ` <small>${esc(fill(t.archiveSummary, { archived }))}</small>` : ""}</p>
       </section>
 
       <section class="projects" aria-label="${esc(t.projectsLabel)}">
+        <p class="count"><span>${esc(fill(t.summary, { total: listed.length }))}</span>${archived ? ` <small>${esc(fill(t.archiveSummary, { archived }))}</small>` : ""}</p>
         <ul class="filters" aria-label="${esc(t.filterLabel)}" hidden>
         ${filters}
         </ul>
