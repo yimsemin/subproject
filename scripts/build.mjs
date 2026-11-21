@@ -5,7 +5,10 @@ const { site, projects, messages } = await loadContent();
 
 const esc = (value) =>
   String(value).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
-const fill = (template, values) => template.replace(/\{(\w+)\}/g, (_, key) => values[key]);
+const fill = (template, values) => template.replace(/\{(\w+)\}/g, (_, key) => {
+  if (!Object.hasOwn(values, key)) throw new Error(`i18n: 치환 변수 "${key}"에 값을 제공해야 합니다`);
+  return values[key];
+});
 
 const base = (lang) => (lang === "ko" ? "/" : `/${lang}/`);
 const canonical = (lang) => `${site.origin}${base(lang)}`;
@@ -26,9 +29,9 @@ function projectRow(project, lang, t) {
   if (project.repo) links.push(`<li><a href="${esc(project.repo)}" rel="noopener">${esc(t.repo)} ↗</a></li>`);
   return `        <li class="project" data-category="${project.category}" data-archived="${project.status === "archived"}">
           <div>
-            <h3 class="p-name">${esc(name)}</h3>
+            <h2 class="p-name">${esc(name)}</h2>
             <p class="p-tags"><span class="category-tag">${esc(t.categories[project.category])}</span>${project.status === "archived" ? ` <span class="archive-tag">${esc(t.archived)}</span>` : ""}</p>
-${updateRepo ? `            <p class="p-updated" data-github-repo="${esc(updateRepo)}" hidden><span>last updated</span> <time></time></p>\n` : ""}          </div>
+${updateRepo ? `            <p class="p-updated" data-github-repo="${esc(updateRepo)}" hidden><span>${esc(t.lastUpdated)}</span> <time></time></p>\n` : ""}          </div>
           <p class="p-sum">${esc(project.summary[lang])}</p>
 ${links.length ? `          <ul class="p-links">${links.join("")}</ul>\n` : ""}
         </li>`;
@@ -39,10 +42,11 @@ function page(lang) {
   const other = otherLang(lang);
   const archived = listed.filter((p) => p.status === "archived").length;
   const usedCategories = CATEGORIES.filter((c) => listed.some((p) => p.category === c));
+  const filterLabel = (label, count) => esc(fill(t.filterCount, { label, count }));
   const filters = [
     `<li><button type="button" data-filter="all" aria-pressed="true">${esc(t.filterAll)}</button></li>`,
-    ...usedCategories.map((c) => `<li><button type="button" data-filter="${c}" aria-pressed="false">${esc(t.categories[c])}(${listed.filter((p) => p.category === c).length})</button></li>`),
-    ...(archived ? [`<li class="archive-filter"><span class="filter-separator" aria-hidden="true">|</span><button type="button" data-filter="archived" aria-pressed="false">${esc(t.archived)}(${archived})</button></li>`] : []),
+    ...usedCategories.map((c) => `<li><button type="button" data-filter="${c}" aria-pressed="false">${filterLabel(t.categories[c], listed.filter((p) => p.category === c).length)}</button></li>`),
+    ...(archived ? [`<li class="archive-filter"><span class="filter-separator" aria-hidden="true">|</span><button type="button" data-filter="archived" aria-pressed="false">${filterLabel(t.archived, archived)}</button></li>`] : []),
   ].join("\n        ");
   const contact = [
     `<li><a href="${esc(site.github)}" rel="noopener">${esc(t.contactGithub)} ↗</a></li>`,
@@ -67,7 +71,7 @@ ${LANGS.map((l) => `  <link rel="alternate" hreflang="${l}" href="${canonical(l)
   <meta property="og:description" content="${esc(t.metaDescription)}">
   <meta property="og:url" content="${canonical(lang)}">
   <meta property="og:image" content="${site.origin}/logo-light.png">
-  <meta property="og:image:alt" content="subProject">
+  <meta property="og:image:alt" content="${esc(t.siteName)}">
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/favicon.png">
   <link rel="stylesheet" href="/style.css">
@@ -89,7 +93,7 @@ ${LANGS.map((l) => `  <link rel="alternate" hreflang="${l}" href="${canonical(l)
         <p class="count"><span>${esc(fill(t.summary, { total: listed.length }))}</span>${archived ? ` <small>${esc(fill(t.archiveSummary, { archived }))}</small>` : ""}</p>
       </section>
 
-      <section class="projects" aria-label="${esc(t.filterLabel)}">
+      <section class="projects" aria-label="${esc(t.projectsLabel)}">
         <ul class="filters" aria-label="${esc(t.filterLabel)}" hidden>
         ${filters}
         </ul>
@@ -105,7 +109,7 @@ ${t.aboutBody.map((paragraph) => `        <p>${esc(paragraph)}</p>`).join("\n")}
 
       <section class="contact" aria-labelledby="contact-title">
         <h2 class="section-title" id="contact-title">${esc(t.contactTitle)}</h2>
-        <p>${esc(t.contactBody)}</p>
+        <p>${esc(site.email ? t.contactBody : t.contactGithubOnly)}</p>
         <ul>${contact}</ul>
       </section>
     </main>
