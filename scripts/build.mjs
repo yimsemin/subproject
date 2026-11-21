@@ -70,7 +70,9 @@ ${LANGS.map((l) => `  <link rel="alternate" hreflang="${l}" href="${canonical(l)
   <meta property="og:title" content="${esc(t.metaTitle)}">
   <meta property="og:description" content="${esc(t.metaDescription)}">
   <meta property="og:url" content="${canonical(lang)}">
-  <meta property="og:image" content="${site.origin}/logo-light.png">
+  <meta property="og:image" content="${site.origin}/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="${esc(t.siteName)}">
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/favicon.png">
