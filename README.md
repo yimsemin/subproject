@@ -13,7 +13,7 @@
 Node 24가 필요하다(`.node-version`). 설치할 의존성은 없다.
 
 ```sh
-npm run dev     # 빌드 후 http://127.0.0.1:4173
+npm run dev     # 빌드 후 http://127.0.0.1:4173 (또는 미리보기.command / 미리보기.cmd 더블클릭)
 npm run check   # 빌드, 콘텐츠·번역·글자 크기 검증, 미리보기·업데이트 테스트
 ```
 
