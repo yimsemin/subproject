@@ -1,19 +1,19 @@
 {
   "htmlLang": "en",
   "siteName": "subProject",
-  "metaTitle": "subProject · Small tools, made because I needed them",
-  "metaDescription": "Web tools that finish inside the browser and automations that let AI agents do the work. A hub for the projects built under subProject.",
+  "metaTitle": "subProject · Work Tools and AI Agent Automation",
+  "metaDescription": "RAT → CAT. Clever Automation Tools that take care of Repetitive, Annoying, and Time-consuming work.",
   "skip": "Skip to content",
-  "title": "Small tools, made because I needed them.",
-  "intro": "I build web tools that finish inside the browser and automations that let AI agents do the work. This page is the index of those projects.",
+  "title": "Small tools I built because I needed them",
+  "intro": "Work smarter. Get better results. Make it look good.",
   "summary": "{total} subProject projects",
   "open": "Open",
   "repo": "GitHub",
   "lastUpdated": "Last updated",
   "aboutTitle": "How I build",
   "aboutBody": [
-    "I build the tools I need. I start from doing the work inside the browser, with no server or login, and keep files on your computer wherever I can.",
-    "I also turn the way I work with AI agents into tools, and put a human check at the steps where mistakes are easy to make."
+    "I process files in the browser wherever possible to spare people the trouble of uploading files or signing in. I design each screen so the next step is clear.",
+    "I let AI agents handle repetitive work and make sure people can review the results at steps where mistakes are easy to make."
   ],
   "contactTitle": "Contact",
   "contactBody": "For collaboration or hiring, reach me on GitHub or by email.",
