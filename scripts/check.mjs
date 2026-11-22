@@ -1,3 +1,4 @@
+import { existsSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 import { LANGS, loadContent } from "./content.mjs";
 
@@ -16,6 +17,10 @@ for (const lang of LANGS) {
     for (const text of [project.name, project.summary[lang]]) {
       if (html.includes(text)) fail(`${pages[lang]}: listed:false 프로젝트 "${project.id}"가 노출됩니다`);
     }
+  }
+  for (const [, path] of html.matchAll(/(?:href|src)="(\/[^"#]*)"/g)) {
+    const file = path.endsWith("/") ? `${path}index.html` : path;
+    if (!existsSync(`dist${file}`)) fail(`${pages[lang]}: 없는 로컬 파일 ${path}`);
   }
   const external = [...html.matchAll(/(?:href|src)="(https?:[^"]+)"/g)].map((m) => m[1]);
   const allowed = new Set([site.origin, site.github, ...projects.flatMap((p) => [p.url, p.repo]).filter(Boolean)]);
