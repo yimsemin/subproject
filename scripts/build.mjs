@@ -5,6 +5,8 @@ const { site, projects, messages } = await loadContent();
 
 const esc = (value) =>
   String(value).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+const rich = (value) => esc(value).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+const lines = (value) => value.split(" / ").map((line) => `<span class="line">${rich(line)}</span>`).join(" ");
 const fill = (template, values) => template.replace(/\{(\w+)\}/g, (_, key) => {
   if (!Object.hasOwn(values, key)) throw new Error(`i18n: 치환 변수 "${key}"에 값을 제공해야 합니다`);
   return values[key];
@@ -30,7 +32,7 @@ function projectRow(project, lang, t) {
   return `        <li class="project" data-category="${project.category}" data-archived="${project.status === "archived"}">
           <div>
             <h2 class="p-name">${esc(name)}</h2>
-            <p class="p-tags"><span class="category-tag">${esc(t.categories[project.category])}</span>${project.status === "archived" ? ` <span class="archive-tag">${esc(t.archived)}</span>` : ""}</p>
+            <p class="p-tags"><span class="category-tag">${esc(t.categories[project.category])}</span>${project.status === "archived" ? ` <span class="archive-tag">${esc(t.archivedTag)}</span>` : ""}</p>
 ${updateRepo ? `            <p class="p-updated" data-github-repo="${esc(updateRepo)}" hidden><span>${esc(t.lastUpdated)}</span> <time></time></p>\n` : ""}          </div>
           <p class="p-sum">${esc(project.summary[lang])}</p>
 ${links.length ? `          <ul class="p-links">${links.join("")}</ul>\n` : ""}
@@ -48,10 +50,9 @@ function page(lang) {
     ...usedCategories.map((c) => `<li><button type="button" data-filter="${c}" aria-pressed="false">${filterLabel(t.categories[c], listed.filter((p) => p.category === c).length)}</button></li>`),
     ...(archived ? [`<li class="archive-filter"><span class="filter-separator" aria-hidden="true">|</span><button type="button" data-filter="archived" aria-pressed="false">${filterLabel(t.archived, archived)}</button></li>`] : []),
   ].join("\n        ");
-  const contact = [
-    `<li><a href="${esc(site.github)}" rel="noopener">${esc(t.contactGithub)} ↗</a></li>`,
-    site.email ? `<li><a href="mailto:${esc(site.email)}">${esc(t.contactEmail)}: ${esc(site.email)}</a></li>` : "",
-  ].join("");
+  const email = site.email
+    ? `<a href="mailto:${esc(site.email)}">${esc(site.email)}</a>`
+    : `<a href="${esc(site.github)}" rel="noopener">${esc(t.repo)} ↗</a>`;
 
   return `<!doctype html>
 <html lang="${t.htmlLang}">
@@ -92,6 +93,9 @@ ${LANGS.map((l) => `  <link rel="alternate" hreflang="${l}" href="${canonical(l)
       <section class="hero">
         <h1>${esc(t.title)}</h1>
         <p class="intro">${esc(t.intro)}</p>
+        <figure class="figure hero-figure">
+          <img src="/hero.webp" width="1536" height="1024" alt="${esc(t.heroImage)}">
+        </figure>
       </section>
 
       <section class="projects" aria-label="${esc(t.projectsLabel)}">
@@ -104,16 +108,26 @@ ${listed.map((p) => projectRow(p, lang, t)).join("\n")}
         </ul>
       </section>
 
-      <section class="about" aria-labelledby="about-title">
-        <h2 class="section-title" id="about-title">${esc(t.aboutTitle)}</h2>
-${t.aboutBody.map((paragraph) => `        <p>${esc(paragraph)}</p>`).join("\n")}
+      <section class="ratcat">
+        <figure class="figure">
+          <img src="/cat-and-mouse.webp" width="1536" height="1024" alt="${esc(t.catImage)}" loading="lazy">
+        </figure>
+        <p>${lines(t.ratCat)}</p>
       </section>
 
-      <section class="contact" aria-labelledby="contact-title">
-        <h2 class="section-title" id="contact-title">${esc(t.contactTitle)}</h2>
-        <p>${esc(site.email ? t.contactBody : t.contactGithubOnly)}</p>
-        <ul>${contact}</ul>
+      <section class="about" aria-labelledby="about-title">
+        <h2 class="section-title" id="about-title">${esc(t.aboutTitle)}</h2>
+        <div class="about-card">
+          <img class="profile" src="/profile.jpg" width="400" height="400" alt="${esc(t.profileImage)}" loading="lazy">
+          <div class="about-text">
+            <p class="about-name">${esc(t.aboutName)}</p>
+            <p class="about-role">${esc(t.aboutRole)}</p>
+            <p>${lines(t.aboutBody)}</p>
+            <p class="about-email">${email}</p>
+          </div>
+        </div>
       </section>
+
     </main>
 
     <footer>
