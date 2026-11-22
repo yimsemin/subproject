@@ -16,6 +16,6 @@ for /l %%p in (4183,-1,4173) do (netstat -ano | findstr /c:"127.0.0.1:%%p " | fi
 node scripts\build.mjs || (echo 빌드에 실패했습니다. & pause & exit /b 1)
 echo 미리보기: http://127.0.0.1:%PORT%/   (끄려면 이 창을 닫거나 Ctrl+C)
 start "" cmd /c "timeout /t 1 >nul & start "" http://127.0.0.1:%PORT%/"
-node scripts\serve.mjs
+node scripts\serve.mjs --watch
 echo 미리보기가 꺼졌습니다.
 pause

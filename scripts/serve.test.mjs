@@ -40,3 +40,23 @@ test("preview serves both languages and assets, and returns the custom 404", { t
     assert.deepEqual([...bytes.slice(0, 8)], [137, 80, 78, 71, 13, 10, 26, 10], `${path}: PNG signature`);
   }
 });
+
+test("--watch injects the live-reload script and serves it only in watch mode", { timeout: 10000 }, async (t) => {
+  const start = async (args) => {
+    const child = spawn(process.execPath, [fileURLToPath(new URL("./serve.mjs", import.meta.url)), ...args], {
+      env: { ...process.env, PORT: "0" },
+      stdio: ["ignore", "pipe", "pipe"],
+    });
+    const exited = once(child, "exit");
+    t.after(async () => {
+      child.kill();
+      await exited;
+    });
+    const [output] = await once(child.stdout, "data", { signal: AbortSignal.timeout(5000) });
+    return output.toString().trim();
+  };
+  const watched = await (await fetch(`${await start(["--watch"])}/`)).text();
+  assert.ok(watched.includes("/__reload"), "watch mode: reload script");
+  const plain = await (await fetch(`${await start([])}/`)).text();
+  assert.ok(!plain.includes("/__reload"), "default mode: no reload script");
+});
