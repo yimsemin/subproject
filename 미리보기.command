@@ -28,4 +28,4 @@ node scripts/build.mjs || { read -r -p "빌드에 실패했습니다. 엔터를 
 echo "미리보기: http://127.0.0.1:$port/   (끄려면 이 창을 닫거나 Ctrl+C)"
 (sleep 1; open "http://127.0.0.1:$port/") &
 trap 'echo; echo "미리보기가 꺼졌습니다."' EXIT
-PORT=$port node scripts/serve.mjs
+PORT=$port node scripts/serve.mjs --watch
