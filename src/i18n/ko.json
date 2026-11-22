@@ -26,6 +26,7 @@
   "notFoundHome": "처음으로",
   "archiveSummary": "(아카이브 {archived}개 포함)",
   "archived": "아카이브",
+  "archivedTag": "(아카이브)",
   "filterLabel": "프로젝트 필터",
   "projectsLabel": "프로젝트",
   "filterAll": "전체",

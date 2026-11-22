@@ -32,7 +32,7 @@ function projectRow(project, lang, t) {
   return `        <li class="project" data-category="${project.category}" data-archived="${project.status === "archived"}">
           <div>
             <h2 class="p-name">${esc(name)}</h2>
-            <p class="p-tags"><span class="category-tag">${esc(t.categories[project.category])}</span>${project.status === "archived" ? ` <span class="archive-tag">${esc(t.archived)}</span>` : ""}</p>
+            <p class="p-tags"><span class="category-tag">${esc(t.categories[project.category])}</span>${project.status === "archived" ? ` <span class="archive-tag">${esc(t.archivedTag)}</span>` : ""}</p>
 ${updateRepo ? `            <p class="p-updated" data-github-repo="${esc(updateRepo)}" hidden><span>${esc(t.lastUpdated)}</span> <time></time></p>\n` : ""}          </div>
           <p class="p-sum">${esc(project.summary[lang])}</p>
 ${links.length ? `          <ul class="p-links">${links.join("")}</ul>\n` : ""}

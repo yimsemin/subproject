@@ -26,6 +26,7 @@
   "notFoundHome": "Back to start",
   "archiveSummary": "(including {archived} archived)",
   "archived": "Archived",
+  "archivedTag": "(Archived)",
   "filterLabel": "Project filters",
   "projectsLabel": "Projects",
   "filterAll": "All",
