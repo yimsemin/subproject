@@ -1,5 +1,10 @@
 # Changelog
 
+## [Unreleased]
+
+### Changed
+- 공통 작업 규칙과 Git 훅을 최신 베이스라인으로 갱신
+
 ## 0.2.0
 
 ### Added
